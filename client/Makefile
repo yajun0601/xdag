@@ -5,24 +5,28 @@ dfstools = ../dus/programs/dfstools/source
 dfslib	 = $(dfstools)/dfslib
 dar		 = ../dus/programs/dar/source
 ldusinc	 = ../ldus/source/include/ldus
+utils    = ../utils
 
 sources = \
 	address.c					\
 	block.c						\
 	crypt.c						\
 	hash.c						\
+	init.c						\
 	log.c						\
 	main.c						\
 	memory.c					\
 	netdb.c						\
 	pool.c						\
 	sha256.c					\
-	sha256-mb-x86_64.s                              \
+	sha256-mb-x86_64.s			\
 	storage.c					\
 	sync.c						\
 	transport.c					\
 	wallet.c					\
-	x86_64cpuid.s					\
+	commands.c					\
+	terminal.c					\
+	x86_64cpuid.s				\
 	$(dnet)/dnet_crypt.c		\
 	$(dnet)/dnet_database.c		\
 	$(dnet)/dnet_main.c			\
@@ -39,6 +43,7 @@ sources = \
 	$(dfslib)/dfslib_string.c	\
 	$(dfstools)/lib/dfsrsa.c	\
 	$(dar)/lib/crc_c.c			\
+	$(utils)/utils.c			\
 
 
 headers = \
@@ -47,7 +52,7 @@ headers = \
 	crypt.h							\
 	hash.h							\
 	log.h							\
-	main.h							\
+	init.h							\
 	memory.h						\
 	netdb.h							\
 	pool.h							\
@@ -57,6 +62,8 @@ headers = \
 	sync.h							\
 	transport.h						\
 	wallet.h						\
+	commands.h						\
+	terminal.h						\
 	$(dnet)/dnet_crypt.h			\
 	$(dnet)/dnet_database.h			\
 	$(dnet)/dnet_history.h			\
@@ -78,6 +85,7 @@ headers = \
 	$(ldusinc)/atomic.h				\
 	$(ldusinc)/list.h				\
 	$(ldusinc)/rbtree.h				\
+	$(utils)/utils.h				\
 
 
 flags = -std=gnu11 -O3 -DDFSTOOLS -DCHEATCOIN -DNDEBUG -g -lpthread -lcrypto -lssl -lm -Wall -Wmissing-prototypes -Wno-unused-result -Wl,--export-dynamic

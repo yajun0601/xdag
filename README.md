@@ -1,8 +1,8 @@
 The Dagger (XDAG) cryptocurrency
 ================================
 
-- Community site: https://xdag.org
-- Main net is launched January 5, 2018 at 22:45 GMT. 
+- Community site: https://xdag.io
+- The Main net was launched January 5, 2018 at 22:45 GMT.
 
 
 Principles:
@@ -33,10 +33,16 @@ Install and run (Linux):
         $ cd xdag/client
         $ make
 
-- Run, for example, the miner with 2 CPU mining threads, in daemon mode, connected to the pool blabla.com:13654
+- Run, for example, the miner with 2 CPU mining threads, in daemon mode, connected to the pool put.xdag.server.here:13654
 
-        $ ./xdag -m 2 -d blabla.com:13654
+        $ ./xdag -m 2 -d put.xdag.server.here:13654
         Enter random characters: [enter]
+        
+- Already have an account
+
+		Put your wallet.dat, dnet_key.dat and storage folder in this folder.
+		Then run below command
+		$./xdag -m 2 -d put.xdag.server.here:13654
 
 - Run terminal connected to the daemon in the same folder:
 
@@ -62,7 +68,51 @@ Install and run (Linux):
 - Transfer funds to another address:
 
         xdag> xfer [amount] [address]
+        
 
+Run (Mac OS):
+-----------------------
+
+- Install:
+
+		Download binary file from [release page](https://github.com/XDagger/xdag/releases).  
+		Unzip the zip file to what folder you want.
+
+- Run, for example, the miner with 2 CPU mining threads, in daemon mode, connected to the pool put.xdag.server.here:13654
+
+		$ ./xdag -m 2 -d put.xdag.server.here:13654
+		Enter random characters: [enter]
+		
+- Already have an account
+
+		Put your wallet.dat, dnet_key.dat and storage folder in this folder.
+		Then run below command
+		$./xdag -m 2 -d put.xdag.server.here:13654
+
+- Run terminal connected to the daemon in the same folder:
+
+		$ ./xdag -i
+		xdag> help
+		[see help]
+
+- See if you are connected to the pool:
+
+		xdag> state
+		[see state]
+
+- See your balance:
+
+		xdag> balance
+		[balance]
+
+- See your address:
+
+		xdag> account
+		[address]
+
+- Transfer funds to another address:
+
+		xdag> xfer [amount] [address]
 
 Main chain idea:
 ---------------
@@ -89,8 +139,9 @@ Double spending is prohibited because only first concurrent transaction (by this
 Structure of block:
 ------------------
 
-Each block has fixed size 512 bytes.
-Block consists of 16 fields each of whish has length 32 bytes.
+_The on-disk format will change in the future. Consider this the network protocol._
+Each block has a fixed size of 512 bytes.
+Block consists of 16 fields each of which has length 32 bytes.
 Field 0 is header, it consists of 4 quadwords:
 - transport-layer header
 - types of all 16 fields, 4 bits for one type
@@ -114,17 +165,11 @@ Transport layer:
 ---------------
 
 The dnet network is used as transport layer.
+_A new transport layer will come in the future._
 
 
-Updates:
+Maintainers:
 ---------------
 
-Replacement SHA256 transform code from openssl project,
-modified by true ( XDAG rvKaJSbP9DE6sg6XetYtSpaK+2aDbUq8 )
-
-- 50-150% speedup on Intel Core series post-Nehalem
-- 50-100% speedup on AMD Heavy Equipment cores
-- 400-500% speedup on Ryzen
-- Better use of threads than reference implementation
-
-Heat output is increased with the fast version, so you may want to continue using the old implementation on devices with poor cooling (notebooks, etc).
+Evgeniy ( XDAG: gKNRtSL1pUaTpzMuPMznKw49ILtP6qX3, BTC: 1Jonano4esJzZvqNtUY6NwfPme3EMpVs7n )  
+true ( rvKaJSbP9DE6sg6XetYtSpaK+2aDbUq8 )
